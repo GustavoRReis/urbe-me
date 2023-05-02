@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="{% static 'styles/homepage.css' %}" type="text/css">
+
+
+    <title>Document</title>
+  </head>
+  <body>
+    <body>
+      {% if projetos %}
+      <div class="box-cards">
+        {% for projeto in projetos %}
+        <div class="cards">
+          <h2>{{ projeto.projeto }}</h2>
+          <!-- <p><strong>Latitude:</strong> {{ projeto.latitude }}</p>
+        <p><strong>Longitude:</strong> {{ projeto.longitude }}</p> -->
+          <p>Taxa interna de retorno: {{ projeto.tir_media }}</p>
+          <p>Total captado: {{ projeto.total_captado }}</p>
+          <p>Valor geral de vendas: {{ projeto.vgv }}</p>
+          <button>Detalhes</button>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <p>Nenhum projeto encontrado.</p>
+      {% endif %}
+    </body>
+  </body>
+</html>
