@@ -34,10 +34,10 @@ def popular_banco(request):
 
     request.session["db_populado"] = True
 
-    return HttpResponse("Banco de dados populado com sucesso!")
 
 
 def lista_projetos_view(request):
+    popular_banco(request)
     projetos = Projetos.objects.all()
     context = {"projetos": projetos}
     return render(request, "listaprojetos/homepage.html", context)
