@@ -7,10 +7,6 @@ from listaprojetos.serializer import ProjetosSerializer
 import folium
 
 
-def index(request):
-    return render(request, "listaprojetos/homepage.html")
-
-
 def popular_banco(request):
     if request.session.get("db_populado"):
         return HttpResponse("O banco de dados já foi populado!")

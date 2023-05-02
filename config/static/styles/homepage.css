@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   border: 0;
@@ -6,15 +6,18 @@
 }
 
 .box-cards {
+  padding-top: 36px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   background-color: rgb(216, 216, 221);
+  height: 100vh;
 }
 
 .cards {
   width: calc(25% - 16px);
-  max-height: 300px;
+  max-height: 280px;
   margin: 8px;
   padding: 16px;
   text-align: center;
@@ -24,12 +27,12 @@
 }
 
 .cards h2 {
-  font-size: 1.5rem;
+  font-size: 32px;
   margin-bottom: 8px;
 }
 
 .cards p {
-  font-size: 1.2rem;
+  font-size: 24px;
   color: #777;
   margin-bottom: 16px;
 }
@@ -40,7 +43,7 @@
   padding: 8px 16px;
   border-radius: 16px;
   border: none;
-  font-size: 1.2rem;
+  font-size: 24px;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
@@ -48,4 +51,3 @@
 .cards button:hover {
   background-color: #0b5ed7;
 }
-

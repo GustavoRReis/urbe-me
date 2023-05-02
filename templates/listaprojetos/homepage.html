@@ -12,14 +12,14 @@
       type="text/css"
     />
 
-    <title>Document</title>
+    <title>HomePage</title>
   </head>
   <body>
+    {% include 'listaprojetos/partials/_header.html' %}
     {% if projetos %}
     <div class="box-cards">
       {% for projeto in projetos %}
       <div class="cards">
-        <p>{{ projeto.id }}</p>
         <h2>{{ projeto.projeto }}</h2>
         <p>Taxa interna de retorno: {{ projeto.tir_media }}</p>
         <p>Total captado: {{ projeto.total_captado }}</p>
