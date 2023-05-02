@@ -4,6 +4,7 @@ from .models import Projetos
 from django.http import HttpResponse
 from rest_framework import viewsets
 from listaprojetos.serializer import ProjetosSerializer
+import folium
 
 
 def index(request):
@@ -11,8 +12,7 @@ def index(request):
 
 
 def popular_banco(request):
-
-    if request.session.get('db_populado'):
+    if request.session.get("db_populado"):
         return HttpResponse("O banco de dados já foi populado!")
 
     url = "https://urbe.me/administracao/api/lista-projetos/"
@@ -36,7 +36,7 @@ def popular_banco(request):
         )
         projeto.save()
 
-    request.session['db_populado'] = True
+    request.session["db_populado"] = True
 
     return HttpResponse("Banco de dados populado com sucesso!")
 
@@ -53,7 +53,14 @@ def detalhes_projeto(request, projeto_id):
     except Exception as error:
         print("Erro na chamada da API:", error)
         projeto = None
-    context = {"projeto": projeto}
+
+    m = folium.Map(
+        location=[projeto.latitude, projeto.longitude], zoom_start=100
+    )
+    folium.Marker(location=[projeto.latitude, projeto.longitude]).add_to(m)
+    mapa_html = m._repr_html_()
+
+    context = {"projeto": projeto, "mapa_html": mapa_html}
     return render(request, "listaprojetos/detalhes_projeto.html", context)
 
 

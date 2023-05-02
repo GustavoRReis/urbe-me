@@ -11,17 +11,29 @@
       href="{% static 'styles/detalhes_projeto.css' %}"
       type="text/css"
     />
-    <title>Detalhes do Projeto {{ projeto.id }}</title>
+    <title>Projeto {{ projeto.projeto }}</title>
   </head>
   <body>
-    <h1>Detalhes do Projeto {{ projeto.id }}</h1>
-    <div class="projeto-details">
-      <p><strong>Nome do Projeto:</strong> {{ projeto.projeto }}</p>
-      <p><strong>Latitude:</strong> {{ projeto.latitude }}</p>
-      <p><strong>Longitude:</strong> {{ projeto.longitude }}</p>
-      <p><strong>Taxa Interna de Retorno:</strong> {{ projeto.tir_media }}</p>
-      <p><strong>Total Captado:</strong> {{ projeto.total_captado }}</p>
-      <p><strong>Valor Geral de Vendas:</strong> {{ projeto.vgv }}</p>
+    <div class="box-details">
+      <div class="projeto-details">
+        <h1>Projeto {{ projeto.projeto }}</h1>
+        <p>
+          Este projeto encontra-se em uma localização privilegiada, com fácil
+          acesso a diversas vias importantes e com excelente infraestrutura ao
+          seu redor. Além disso, a região é muito valorizada, com alto potencial
+          de crescimento e desenvolvimento, o que torna este investimento uma
+          oportunidade única para aqueles que buscam rentabilidade e segurança
+          em seus investimentos imobiliários.
+        </p>
+        <div>
+          <ul>
+            <li>Taxa Interna de Retorno: {{ projeto.tir_media }}</li>
+            <li>Total Captado:{{ projeto.total_captado }}</li>
+            <li>Valor Geral de Vendas: {{ projeto.vgv }}</li>
+          </ul>
+        </div>
+      </div>
     </div>
+    <div class="box-map">{{ mapa_html|safe }}</div>
   </body>
 </html>
