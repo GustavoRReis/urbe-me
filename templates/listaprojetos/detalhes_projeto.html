@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{% static 'styles/detalhes_projeto.css' %}"
+      type="text/css"
+    />
+    <title>Detalhes do Projeto {{ projeto.id }}</title>
+  </head>
+  <body>
+    <h1>Detalhes do Projeto {{ projeto.id }}</h1>
+    <div class="projeto-details">
+      <p><strong>Nome do Projeto:</strong> {{ projeto.projeto }}</p>
+      <p><strong>Latitude:</strong> {{ projeto.latitude }}</p>
+      <p><strong>Longitude:</strong> {{ projeto.longitude }}</p>
+      <p><strong>Taxa Interna de Retorno:</strong> {{ projeto.tir_media }}</p>
+      <p><strong>Total Captado:</strong> {{ projeto.total_captado }}</p>
+      <p><strong>Valor Geral de Vendas:</strong> {{ projeto.vgv }}</p>
+    </div>
+  </body>
+</html>
